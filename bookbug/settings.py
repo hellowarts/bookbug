@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os, environ
+
+from django.urls import reverse_lazy
+
 env = environ.Env(
     # set casting, default value
     DEBUG=(bool, False)
@@ -47,6 +50,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accountapp',
+    'profileapp',
+    'articleapp',
 ]
 
 MIDDLEWARE = [
@@ -135,6 +140,14 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+LOGIN_REDIRECT_URL = reverse_lazy('account:hello_world')
+LOGOUT_REDIRECT_URL = reverse_lazy('account:hello_world')
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
