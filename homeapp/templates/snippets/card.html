@@ -1,3 +1,21 @@
-<div>
-  <img src="{{ article.image.url }}" alt="">
+<div class="col mb-5">
+  <div class="card h-100">
+    <img src="{{ article.image.url }}" alt="">
+    <div class="card-body p-4">
+      <div class="text-center">
+        <h5 class="fw-bolder">
+          {{ target_article.title }}
+        </h5>
+      </div>
+    </div>
+    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+      <div class="text-center">
+        <a href="{% url 'articleapp:detail' pk=article.pk %}" class="btn btn-outline-dark mt-auto">
+          View Option
+        </a>
+
+      </div>
+
+    </div>
+  </div>
 </div>

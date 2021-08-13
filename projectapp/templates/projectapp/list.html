@@ -2,24 +2,43 @@
 {% load static %}
 {% block content %}
 
+<style>
 
+.container {
+    padding: 0;
+    margin: 0 auto;
+}
+
+.container a {
+    width: 45%;
+    max-width: 250px;
+}
+
+.container div {
+  width: 250px;
+  height: 500px;
+  background-color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+}
+
+.container img {
+  width: 100%;
+}
+</style>
 {% if article_list %}
-
-<section class="py-5">
-    <div class="container px-4 px-lg-5 mt-5">
-        <div class="row gx-4 gx-lg-5 row-cols-md-3 row-cols-xl-4 justify-content-center">
+<div class="container">
 
   {% for article in article_list %}
   <a href="{% url 'articleapp:detail' pk=article.pk %}">
       {% include 'snippets/card.html' with article=article %}
   </a>
   {% endfor %}
-        </div>
-    </div>
-</section>
+</div>
 
-
-
+<script src="{% static 'js/magicgrid.js' %}"></script>
 
 {% else %}
 <div>
