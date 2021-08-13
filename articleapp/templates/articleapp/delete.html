@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div style="text-align: centers">
+    <div>
+      <h4>게시글 삭제 {{ target_article.title }}</h4>
+    </div>
+    <form action="{% url 'articleapp:delete' pk=target_article.pk %}" method="post">
+      {% csrf_token %}
+
+
+      <input type="submit">
+    </form>
+  </div>
+{% endblock %}

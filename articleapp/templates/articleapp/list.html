@@ -4,6 +4,16 @@
 
 <style>
 
+.container {
+    padding: 0;
+    margin: 0 auto;
+}
+
+.container a {
+    width: 45%;
+    max-width: 250px;
+}
+
 .container div {
   width: 250px;
   height: 500px;
@@ -18,21 +28,36 @@
   width: 100%;
 }
 </style>
+{% if article_list %}
 <div class="container">
-  <div class="item1">
-    <img src="https://picsum.photos/200/300" alt="">
-  </div>
-  <div class="item1">
-    <img src="https://picsum.photos/200/340" alt="">
-  </div>
-  <div class="item1">
-    <img src="https://picsum.photos/200/350" alt="">
-  </div>
-  <div class="item1">
-    <img src="https://picsum.photos/200/360" alt="">
-  </div>
-</div>
-<script src="{% static 'js/magicgrid.js' %}">
 
-</script>
+  {% for article in article_list %}
+  <a href="{% url 'articleapp:detail' pk=article.pk %}">
+      {% include 'snippets/card.html' with article=article %}
+  </a>
+  {% endfor %}
+</div>
+
+<script src="{% static 'js/magicgrid.js' %}"></script>
+
+{% else %}
+<div>
+  <h1>no Articles YET!</h1>
+</div>
+{% endif %}
+
+<div>
+  <a href="{% url 'articleapp:create' %}">
+    Create
+  </a>
+</div>
+
+{% include 'snippets/pagination.html' with page_obj=page_obj %}
+<div style ="text-align:center">
+    <a href="{% url 'articleapp:create' %}">
+        글쓰기
+    </a>
+</div>
+
+
 {% endblock %}

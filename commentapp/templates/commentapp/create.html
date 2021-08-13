@@ -1,0 +1,21 @@
+
+{% block content %}
+  <div style="text-align: centers">
+    <div>
+      댓글쓰기
+    </div>
+    <form action="{% url 'commentapp:create' %}" method="post">
+      {% csrf_token %}
+      {{ form }}
+
+      {% if user.is_authenticated %}
+      <input type="submit">
+      {% else %}
+      <a href="{% url 'accountapp:login' %}?next={{ request.path }}">
+        Login
+      </a>
+      {% endif %}
+      <input type="hidden" name="article_pk" value="{{ article.pk }}">
+    </form>
+  </div>
+{% endblock %}
