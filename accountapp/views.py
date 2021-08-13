@@ -25,12 +25,12 @@ class AccountCreateView(CreateView):
 
 
 class AccountDetailView(DetailView, MultipleObjectMixin):
-    model =  User
+    model = User
     context_object_name = 'target_user'
     templates_name = 'accountapp/detail.html'
 
     def get_context_data(self, **kwargs):
-        object_list = Article.objects.filter(writer = self.get_object())
+        object_list = Article.objects.filter(writer = self.get_object()).order_by('-pk')
         return super(AccountDetailView, self).get_context_data(object_list=object_list, **kwargs)
 
 

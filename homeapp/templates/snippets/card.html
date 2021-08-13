@@ -1,17 +1,21 @@
 <div class="col mb-5">
   <div class="card h-100">
-    <img src="{{ article.image.url }}" alt="">
+    <img src="{{ article.image.url }}" class="card-img-top" alt="">
+
+    <!-- Product details-->
     <div class="card-body p-4">
       <div class="text-center">
+        <!-- Product name-->
         <h5 class="fw-bolder">
-          {{ target_article.title }}
+          {{ article.title }}
         </h5>
       </div>
     </div>
     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
       <div class="text-center">
+        <!-- Product actions-->
         <a href="{% url 'articleapp:detail' pk=article.pk %}" class="btn btn-outline-dark mt-auto">
-          View Option
+          자세히 보기
         </a>
 
       </div>
