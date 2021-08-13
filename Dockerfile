@@ -6,7 +6,7 @@ RUN echo "this is onbuild test"!
 
 RUN git clone https://github.com/hellowarts/bookbug.git
 
-WORKDIR /home/book_bug_main/
+WORKDIR /home/bookbug/
 
 RUN pip install -r requirements.txt
 

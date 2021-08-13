@@ -3,7 +3,7 @@ colorama==0.3.7
 Django==3.2.3
 django-environ==0.4.5
 Pillow==8.2.0
-pygame @ file:///C:/Users/user/AppData/Local/Programs/Python/Python39/exam/pygame-2.0.1-cp39-cp39-win_amd64.whl
+gunicorn==20.1.0
 pynput==1.7.3
 pytz==2021.1
 sh==1.12.0
