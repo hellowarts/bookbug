@@ -6,7 +6,7 @@ RUN git clone https://github.com/hellowarts/book_bug_main.git
 
 WORKDIR /home/book_bug_main/
 
-RUN pip install -r requirements.py
+RUN pip install -r requirements.txt
 
 RUN echo "django-insecure-u@daehkcs^--vi1k&q+$tkd)a-86rxp-tw&7b$#h)grs0+r99y" > .env
 
